@@ -1,0 +1,38 @@
+#集成测试环境
+spring:
+  application:
+    name: instructor-eureka-center
+
+server:
+  tomcat:
+    max-threads: 800      #tomcat max threads,default is 200.
+    uri-encoding: UTF-8
+
+--- # 在启动时 java -jar eureka.jar --spring.profiles.active=eureka1
+spring:
+  profiles: eureka1
+server:
+  port: 10001
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    service-url:
+      defaultZone: http://eureka1:10001/eureka/,http://eureka2:10002/eureka/
+  server:
+    enable-self-preservation: false       #关闭自我保护
+    eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000)
+---
+spring:
+  profiles: eureka2
+server:
+  port: 10002
+eureka:
+  instance:
+    hostname: eureka2
+  client:
+    service-url:
+      defaultZone:  http://eureka1:10001/eureka/,http://eureka2:10002/eureka/
+  server:
+    enable-self-preservation: false       #关闭自我保护
+    eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000)
