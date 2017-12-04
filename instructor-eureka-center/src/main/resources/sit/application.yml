@@ -16,6 +16,7 @@ server:
 eureka:
   instance:
     hostname: eureka1
+    instanceId: eureka1
   client:
     service-url:
       defaultZone: http://eureka1:10001/eureka/,http://eureka2:10002/eureka/
@@ -30,6 +31,7 @@ server:
 eureka:
   instance:
     hostname: eureka2
+    instanceId: eureka2
   client:
     service-url:
       defaultZone:  http://eureka1:10001/eureka/,http://eureka2:10002/eureka/

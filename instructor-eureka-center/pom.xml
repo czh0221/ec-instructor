@@ -21,7 +21,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
-        <!--健康监控-->
+        <!--健康监控和管理应用-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -63,6 +63,7 @@
                     <exclude>dev/**</exclude>
                     <exclude>sit/**</exclude>
                     <exclude>uat/**</exclude>
+                    <exclude>shscript/*</exclude>
                 </excludes>
                 <filtering>false</filtering>
             </resource>
